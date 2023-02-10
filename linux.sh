@@ -499,7 +499,7 @@ fi
 
 # Find SUID / SGID binaries
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~ [ SUID / SGID ] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo "Finding SGUID /SGID binaries..."
+echo "Finding SUID / SGID binaries..."
 echo "Investigate which binaries are SUID / SGID. Check for GTFOBins."
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo "Investigate which binaries are SUID / SGID. Check for GTFOBins." > suidsgid.info
@@ -572,8 +572,7 @@ fi
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~ [ sudoers ] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo "Modifying /etc/sudoers to be more secure..."
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo "Defaults  use_pty" >> /etc/sudoers
-echo "Defaults logfile='/var/log/sudo.log'" >> /etc/sudoers
+echo "Defaults use_pty" | cat - /etc/sudoers > temp && mv temp /etc/sudoers
 
 # Upgrade packages
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~ [ Update ] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
