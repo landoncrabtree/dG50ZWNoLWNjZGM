@@ -462,10 +462,10 @@ echo "Enter 'p' or 'k'. Enter 's' to skip: "
 read auth_type
 if [ "$auth_type" = "p" ]; then
     rm --force /etc/ssh/sshd_config
-    cp ./configs/sshd_config_key.conf /etc/ssh/sshd_config
+    cp ./configs/sshd_config_password.conf /etc/ssh/sshd_config
 elif [ "$auth_type" = "k" ]; then
     rm --force /etc/ssh/sshd_config
-    cp ./configs/sshd_config_pass.conf /etc/ssh/sshd_config
+    cp ./configs/sshd_config_key.conf /etc/ssh/sshd_config
 elif [ "$auth_type" = "s" ]; then
     echo "Skipping..."
 else
